@@ -1,6 +1,18 @@
 <%- include('partials/header'); -%>
 <body>
   <h1>Home</h1>
-  <p><%= content %></p>
+  <p><%= startingContent %></p>
+  <% for(let i=0; i<posts.length; i++){%>
+    <h3><%= posts[i].title %></h3><br />
+    <% let dotPlaceholder=''; %>
+
+    <% if (posts[i].body.length > 140){ %>
+      <% dotPlaceholder='...';%>
+    <% } %>
+    
+    <h4><%= posts[i].body.slice(0,140) + dotPlaceholder %></h4><br />
+  <% } %>
+
+
 </body>
 <%- include('partials/footer'); -%>
